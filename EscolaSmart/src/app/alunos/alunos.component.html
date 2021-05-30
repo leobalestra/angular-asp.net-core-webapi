@@ -1,26 +1,45 @@
-<app-titulo [titulo]=titulo></app-titulo>
+<div class="container">
+  <div *ngIf="alunoSelecionado">
 
-<ul>
-  <li *ngFor="let aluno of alunos">
-    {{aluno.nome}}
-  </li>
-</ul>
+    <div class="row">
+        <app-titulo [titulo]="'Aluno: ' + alunoSelecionado"></app-titulo>
+        <button class="btn btn-warning" (click)="voltar()">Lista de Alunos</button>
+    </div>
+    <br>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Nome</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Sobrenome</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Telefone</label>
+      <input type="text" class="form-control">
+    </div>
 
-<table class="table">
-  <thead class="table-dark">
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Sobrenome</th>
-      <th scope="col">Telefone</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let aluno of alunos">
-      <th scope="row">{{aluno.id}}</th>
-      <td>{{aluno.nome}}</td>
-      <td>{{aluno.sobrenome}}</td>
-      <td>{{aluno.telefone}}</td>
-    </tr>
-  </tbody>
-</table>
+  </div>
+  <div *ngIf="!alunoSelecionado">
+    <app-titulo [titulo]=titulo></app-titulo>
+    <!--Nenhum selecionado-->
+    <table class="table table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Sobrenome</th>
+          <th scope="col">Telefone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aluno of alunos" style="cursor: pointer;" (click)="alunoSelecao(aluno)" >
+          <th scope="row">{{aluno.id}}</th>
+          <td>{{aluno.nome}}</td>
+          <td>{{aluno.sobrenome}}</td>
+          <td>{{aluno.telefone}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,22 +1,43 @@
-<app-titulo [titulo]=titulo></app-titulo>
-<!--<ul>
-  <li *ngFor="let professor of professores">
-    {{professor.nome}}
-  </li>
-</ul>-->
-<table class="table">
-  <thead class="table-dark">
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Disciplina</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let professor of professores">
-      <th scope="row">{{professor.id}}</th>
-      <td>{{professor.nome}}</td>
-      <td>{{professor.disciplina}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <!--<ul>
+    <li *ngFor="let professor of professores">
+      {{professor.nome}}
+    </li>
+  </ul>-->
+  <div *ngIf="professorSelecionado">
+
+    <div class="row">
+      <app-titulo [titulo]="'Professor: ' + professorSelecionado"></app-titulo>
+      <button class="btn btn-warning" (click)="voltar()">Lista de Professores</button>
+    </div>
+    <br>
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">Nome</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Disciplina</label>
+      <input type="text" class="form-control">
+    </div>
+
+  </div>
+  <div *ngIf="!professorSelecionado">
+    <app-titulo [titulo]=titulo></app-titulo>
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Disciplina</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let professor of professores" style="cursor: pointer;" (click)="professorSelecao(professor)">
+          <th scope="row">{{professor.id}}</th>
+          <td>{{professor.nome}}</td>
+          <td>{{professor.disciplina}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

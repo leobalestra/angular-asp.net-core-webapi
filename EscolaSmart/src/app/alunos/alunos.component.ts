@@ -7,16 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlunosComponent implements OnInit {
 
-  titulo = 'Alunos';
+  public titulo = 'Alunos';
 
   public alunos = [
-    { nome: 'Marta'},
-    { nome: 'Ana'  },
-    { nome: 'Lari' },
-    { nome: 'Julia'},
-    { nome: 'Caio' },
-    { nome: 'Pedro'},
-    { nome: 'Leo'  }
+    { id: 1, nome: 'Marta', sobrenome: 'Balestra', telefone: 33221144 },
+    { id: 2, nome: 'Ana'  , sobrenome: 'Silva',    telefone: 33322564 },
+    { id: 3, nome: 'Lari' , sobrenome: 'Moreira',  telefone: 32564523 },
+    { id: 4, nome: 'Julia', sobrenome: 'Amorim',   telefone: 25425128 },
+    { id: 5, nome: 'Caio' , sobrenome: 'Buliani',  telefone: 32584568 },
+    { id: 6, nome: 'Pedro', sobrenome: 'Netto',    telefone: 32515248 },
+    { id: 7, nome: 'Leo'  , sobrenome: 'Oliveira', telefone: 21524587 }
   ];
 
   constructor() { }

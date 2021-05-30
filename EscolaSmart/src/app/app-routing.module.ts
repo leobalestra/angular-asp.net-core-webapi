@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AlunosComponent } from './alunos/alunos.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardsComponent } from './dashboards/dashboards.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ProfessoresComponent } from './professores/professores.component';
 
@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'professores', component: ProfessoresComponent }, //objeto   link url  leva para o componete
   {path: 'alunos', component: AlunosComponent },
   {path: 'perfis', component: PerfilComponent },
-  {path: 'dashboards', component: DashboardComponent }
+  {path: 'dashboards', component: DashboardsComponent }
 ]; //iniciando as rotas
 
 @NgModule({
